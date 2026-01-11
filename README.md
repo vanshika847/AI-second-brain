@@ -6,14 +6,15 @@
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.31-FF4B4B.svg)](https://streamlit.io)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-# SET ENVIRONMENT
+SET ENVIRONMENT
 python -m venv venv
 
 venv\Scripts\activate.bat
 
 streamlit run app.py
 
-**AI Second Brain** Stop searching through PDFs manually. Your personal knowledge base powered by RAG. Upload documents, ask questions, get instant answers with source citations. 100% free with Groq API. Privacy-first with local embeddings. 
+# AI Second Brain
+Stop searching through PDFs manually. Your personal knowledge base powered by RAG. Upload documents, ask questions, get instant answers with source citations. 100% free with Groq API. Privacy-first with local embeddings. 
 
 Transforms your document collection into an interactive knowledge base. Upload PDFs, DOCX, PPTX, TXT, or MD files and ask questions in natural language. Get instant, source-backed answers with page citations and confidence scores.
 
@@ -30,23 +31,65 @@ Transforms your document collection into an interactive knowledge base. Upload P
 - **🆓 100% FREE** - Uses Groq API (free tier) or local Ollama
 - **🔒 Privacy-First** - Local embeddings, your data stays yours
 
+## 🏗️ Architecture
 
-# Architecture
-Upload Document → Parse & Clean → Chunk Text → Generate Embeddings
-                                                      ↓
-User Question → Embed Query → Search Vector DB → Retrieve Top 5 Chunks
-                                                      ↓
-                              Build Context → Send to Groq LLM → Generate Answer
-                                                      ↓
-                              Display Answer + Sources + Page Numbers
+### System Overview
+
+```mermaid
+graph TB
+    subgraph "User Interface"
+        A[Streamlit UI] --> B[Chat Interface]
+        A --> C[Upload Interface]
+        A --> D[Comparison Interface]
+        A --> E[Voice Input]
+    end
+    
+    subgraph "Document Processing Pipeline"
+        F[Document Processor] --> G[Text Parser]
+        G --> H[Text Cleaner]
+        H --> I[Text Chunker]
+    end
+    
+    subgraph "Embedding Layer"
+        J[FastEmbed Manager] --> K[BGE-small-en Model]
+        K --> L[384-dim Vectors]
+    end
+    
+    subgraph "Vector Storage"
+        M[ChromaDB Manager] --> N[Persistent Storage]
+        N --> O[Cosine Similarity Search]
+    end
+    
+    subgraph "RAG Engine"
+        P[Query Engine] --> Q[Context Builder]
+        Q --> R[Prompt Constructor]
+        R --> S[Memory Manager]
+    end
+    
+    subgraph "LLM Layer"
+        T[Groq API] --> U[Llama 3.1 8B]
+        V[OpenAI API] -.-> W[GPT-3.5/4]
+    end
+    
+    C --> F
+    F --> J
+    J --> M
+    B --> P
+    P --> M
+    M --> P
+    P --> T
+    T --> P
+    P --> B
+    E --> B
+    D --> M
 
 
 # Tech Stack:
-LlamaIndex - RAG framework
-ChromaDB - Vector database (persistent)
-FastEmbed - Local embeddings (BGE-small-en)
-Groq API - LLM inference (Llama 3.1 8B)
-Streamlit - Web UI
+- **LlamaIndex - RAG framework
+- **ChromaDB - Vector database (persistent)
+- **FastEmbed - Local embeddings (BGE-small-en)
+- **Groq API - LLM inference (Llama 3.1 8B)
+- **Streamlit - Web UI
 
 
 # 💰 Cost Analysis
@@ -110,13 +153,16 @@ Managing curriculum, lesson plans, student materials
 Managing recipes, travel plans, notes, articles
 
 # FUTURE ENHANCEMENTS
-Export Chat History
-Smart Summarization
-Advanced Search Filters
-Multi-User Workspace
-Cloud Integration
-Flashcard Generator
-Knowledge Graph
+- **Export Chat History
+- **Smart Summarization
+- **Advanced Search Filters
+- **Multi-User Workspace
+- **Cloud Integration
+- **Flashcard Generator
+- **Knowledge Graph
+- **Export to Note-Taking Apps
+- **Analytics Dashboard
+- **Custom AI Personas
 
 # ⭐ Star History
 If you find this project helpful, please consider giving it a star! ⭐
@@ -124,3 +170,4 @@ If you find this project helpful, please consider giving it a star! ⭐
 # Built with ❤️ by vanshika
 
 Transform your documents into an AI-powered knowledge base in minutes.
+
