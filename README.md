@@ -31,57 +31,14 @@ Transforms your document collection into an interactive knowledge base. Upload P
 - **🆓 100% FREE** - Uses Groq API (free tier) or local Ollama
 - **🔒 Privacy-First** - Local embeddings, your data stays yours
 
+
+---
 ## 🏗️ Architecture
+### Document Upload Flow
 
-### System Overview
+┌─────────────┐ │ User │ │ Uploads │ │ Document │ └──────┬──────┘ │ ▼ ┌──────────────────────────────────────┐ │ Document Processor │ │ • Parse (PDF/DOCX/PPTX/TXT/MD) │ │ • Clean text │ │ • Chunk into 512-token segments │
 
-```mermaid
-graph TB
-    subgraph "User Interface"
-        A[Streamlit UI] --> B[Chat Interface]
-        A --> C[Upload Interface]
-        A --> D[Comparison Interface]
-        A --> E[Voice Input]
-    end
-    
-    subgraph "Document Processing Pipeline"
-        F[Document Processor] --> G[Text Parser]
-        G --> H[Text Cleaner]
-        H --> I[Text Chunker]
-    end
-    
-    subgraph "Embedding Layer"
-        J[FastEmbed Manager] --> K[BGE-small-en Model]
-        K --> L[384-dim Vectors]
-    end
-    
-    subgraph "Vector Storage"
-        M[ChromaDB Manager] --> N[Persistent Storage]
-        N --> O[Cosine Similarity Search]
-    end
-    
-    subgraph "RAG Engine"
-        P[Query Engine] --> Q[Context Builder]
-        Q --> R[Prompt Constructor]
-        R --> S[Memory Manager]
-    end
-    
-    subgraph "LLM Layer"
-        T[Groq API] --> U[Llama 3.1 8B]
-        V[OpenAI API] -.-> W[GPT-3.5/4]
-    end
-    
-    C --> F
-    F --> J
-    J --> M
-    B --> P
-    P --> M
-    M --> P
-    P --> T
-    T --> P
-    P --> B
-    E --> B
-    D --> M
+---
 
 
 # Tech Stack:
@@ -106,7 +63,7 @@ graph TB
 - **FastEmbed - Local embeddings
 ---
 
-## 🎯 Use Cases
+# 🎯 Use Cases
 
 ### 👨‍🎓 For Students
 
@@ -170,4 +127,5 @@ If you find this project helpful, please consider giving it a star! ⭐
 # Built with ❤️ by vanshika
 
 Transform your documents into an AI-powered knowledge base in minutes.
+
 
