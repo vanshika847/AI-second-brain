@@ -1,0 +1,6 @@
+.env
+venv/
+__pycache__/
+credentials.json
+firebase-credentials.json
+.streamlit/
