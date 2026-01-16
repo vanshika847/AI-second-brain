@@ -1,3 +1,5 @@
+
+
 # 🧠 AI Second Brain
 
 > Chat with your documents using RAG. Free, fast, and privacy-first.
@@ -6,14 +8,15 @@
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.31-FF4B4B.svg)](https://streamlit.io)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-# SET ENVIRONMENT
+SET ENVIRONMENT
 python -m venv venv
 
 venv\Scripts\activate.bat
 
 streamlit run app.py
 
-**AI Second Brain** Stop searching through PDFs manually. Your personal knowledge base powered by RAG. Upload documents, ask questions, get instant answers with source citations. 100% free with Groq API. Privacy-first with local embeddings. 
+# AI Second Brain
+Stop searching through PDFs manually. Your personal knowledge base powered by RAG. Upload documents, ask questions, get instant answers with source citations. 100% free with Groq API. Privacy-first with local embeddings. 
 
 Transforms your document collection into an interactive knowledge base. Upload PDFs, DOCX, PPTX, TXT, or MD files and ask questions in natural language. Get instant, source-backed answers with page citations and confidence scores.
 
@@ -31,22 +34,21 @@ Transforms your document collection into an interactive knowledge base. Upload P
 - **🔒 Privacy-First** - Local embeddings, your data stays yours
 
 
-# Architecture
-Upload Document → Parse & Clean → Chunk Text → Generate Embeddings
-                                                      ↓
-User Question → Embed Query → Search Vector DB → Retrieve Top 5 Chunks
-                                                      ↓
-                              Build Context → Send to Groq LLM → Generate Answer
-                                                      ↓
-                              Display Answer + Sources + Page Numbers
+---
+## 🏗️ Architecture
+### Document Upload Flow
+
+┌─────────────┐ │ User │ │ Uploads │ │ Document │ └──────┬──────┘ │ ▼ ┌──────────────────────────────────────┐ │ Document Processor │ │ • Parse (PDF/DOCX/PPTX/TXT/MD) │ │ • Clean text │ │ • Chunk into 512-token segments │
+
+---
 
 
 # Tech Stack:
-LlamaIndex - RAG framework
-ChromaDB - Vector database (persistent)
-FastEmbed - Local embeddings (BGE-small-en)
-Groq API - LLM inference (Llama 3.1 8B)
-Streamlit - Web UI
+- **LlamaIndex - RAG framework
+- **ChromaDB - Vector database (persistent)
+- **FastEmbed - Local embeddings (BGE-small-en)
+- **Groq API - LLM inference (Llama 3.1 8B)
+- **Streamlit - Web UI
 
 
 # 💰 Cost Analysis
@@ -63,7 +65,7 @@ Streamlit - Web UI
 - **FastEmbed - Local embeddings
 ---
 
-## 🎯 Use Cases
+# 🎯 Use Cases
 
 ### 👨‍🎓 For Students
 
@@ -110,13 +112,16 @@ Managing curriculum, lesson plans, student materials
 Managing recipes, travel plans, notes, articles
 
 # FUTURE ENHANCEMENTS
-Export Chat History
-Smart Summarization
-Advanced Search Filters
-Multi-User Workspace
-Cloud Integration
-Flashcard Generator
-Knowledge Graph
+- **Export Chat History
+- **Smart Summarization
+- **Advanced Search Filters
+- **Multi-User Workspace
+- **Cloud Integration
+- **Flashcard Generator
+- **Knowledge Graph
+- **Export to Note-Taking Apps
+- **Analytics Dashboard
+- **Custom AI Personas
 
 # ⭐ Star History
 If you find this project helpful, please consider giving it a star! ⭐
@@ -124,3 +129,5 @@ If you find this project helpful, please consider giving it a star! ⭐
 # Built with ❤️ by vanshika
 
 Transform your documents into an AI-powered knowledge base in minutes.
+
+
